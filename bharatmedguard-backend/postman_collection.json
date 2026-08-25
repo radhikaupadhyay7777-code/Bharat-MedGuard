@@ -1,0 +1,387 @@
+{
+  "info": {
+    "name": "BharatMedGuard API v2.4",
+    "description": "AI-Powered Healthcare Cyber Defence & Multi-Pipeline Anomaly Detection Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8000/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "01. Auth",
+      "item": [
+        {
+          "name": "Login (Investigator)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"investigator@bharatmedguard.demo\",\n  \"password\": \"demo_password_2026\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Current User Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "02. Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Summary KPIs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/dashboard/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "dashboard",
+                "summary"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Health Status",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://127.0.0.1:8000/health",
+              "host": [
+                "http://127.0.0.1:8000"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "03. Pipeline 1 - Claims Intelligence",
+      "item": [
+        {
+          "name": "List All Claims",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/claims",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "claims"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Submit & Analyze Claim (High-Risk Anomaly)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient_id\": \"P-102\",\n  \"patient_name\": \"Aarav Sharma\",\n  \"abha_id\": \"91-8842-1920-5512\",\n  \"hospital_id\": \"HOSP-MUM-03\",\n  \"hospital_name\": \"CityCare Apex Multi-Speciality\",\n  \"procedure\": \"Coronary Angioplasty + 2 Stents\",\n  \"claimed_amount\": 340000.0,\n  \"benchmark_amount\": 100000.0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/claims",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "claims"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Claim Detail",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/claims/BM-1024",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "claims",
+                "BM-1024"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "04. Pipeline 2 - Identity & Velocity",
+      "item": [
+        {
+          "name": "List All Patients",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/patients",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "patients"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Analyze Patient Velocity (Impossible Travel)",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/patients/P-102/analyze",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "patients",
+                "P-102",
+                "analyze"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "05. Pipeline 3 - Medical Document OCR",
+      "item": [
+        {
+          "name": "List Documents",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "documents"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Document OCR Forensic Cross-Check",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/documents/DOC-901",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "documents",
+                "DOC-901"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "06. Pipeline 4 - Clinical Intelligence",
+      "item": [
+        {
+          "name": "List Clinical Records",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/clinical",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clinical"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Analyze Clinical Lab Anomaly (K+ Spike)",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/clinical/CLN-401/analyze",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "clinical",
+                "CLN-401",
+                "analyze"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "07. AI Isolation Forest Scatter Telemetry",
+      "item": [
+        {
+          "name": "Get 2D Latent Scatter Points",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/ai/isolation-forest?contamination=0.05&estimators=100",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "ai",
+                "isolation-forest"
+              ],
+              "query": [
+                {
+                  "key": "contamination",
+                  "value": "0.05"
+                },
+                {
+                  "key": "estimators",
+                  "value": "100"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "08. Investigation Case Management",
+      "item": [
+        {
+          "name": "List Cases",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/investigations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "investigations"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Case Detail (BM-2026-0142)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/investigations/BM-2026-0142",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "investigations",
+                "BM-2026-0142"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "09. Cyber Security & Network Monitor",
+      "item": [
+        {
+          "name": "Get Live Scapy Packet Stream & Alerts",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/security/events",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "security",
+                "events"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "10. Immutable Audit Trail",
+      "item": [
+        {
+          "name": "Get Audit Logs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
