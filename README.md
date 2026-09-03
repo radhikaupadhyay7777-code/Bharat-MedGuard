@@ -63,6 +63,7 @@ Alert Generation
 Investigation Case
 
 2. 🪪 Patient & Identity Anomaly Detection
+
 Detects suspicious patient identity and activity patterns.
 Examples include:
 Duplicate patient identities
@@ -89,6 +90,7 @@ Risk Score
 Security Alert
 
 3. 📄 Medical Document Anomaly Detection
+
 Processes medical documents and extracts relevant information using OCR.
 The system can analyze:
 Medical PDFs
@@ -117,6 +119,7 @@ Anomaly Analysis
 Risk / Alert
 
 4. 🏥 Clinical Data Anomaly Detection
+
 Analyzes clinical information to identify unusual or inconsistent patterns.
 Examples include:
 Abnormal clinical values
@@ -172,6 +175,7 @@ Risk Level
 Alert / Investigation
 
 🔐 Security Architecture
+
 Security is a core component of BharatMedGuard.
 Authentication
 OAuth 2.0
@@ -203,6 +207,7 @@ Audit & Monitoring
 Important security-related activities are recorded through Python logging and audit mechanisms.
 
 🌐 Network Security
+
 BharatMedGuard includes Scapy-based network analysis capabilities.
 Scapy Pipeline
 
@@ -256,6 +261,7 @@ Scapy is used for packet-level network analysis and security-oriented monitoring
                          └──────────────────────┘
 
 🛠️ Technology Stack
+
 Frontend
 React.js
 JavaScript
@@ -292,6 +298,7 @@ GitHub
 VS Code
 
 📁 Project Structure
+
 BharatMedGuard/
 │
 ├── bharatmedguard-backend/
@@ -328,6 +335,7 @@ BharatMedGuard/
 └── README.md
 
 🔄 End-to-End Workflow
+
 User Authentication
         ↓
 Select Security Pipeline
@@ -355,6 +363,7 @@ Audit Logging
 Report
 
 📊 Risk Classification
+
 Detected anomalies can be classified into different risk levels:
 LOW
  ↓
@@ -367,6 +376,7 @@ CRITICAL
 Risk scoring helps investigators prioritize cases that require immediate attention.
 
 🔎 Investigation Workflow
+
 When suspicious activity is detected:
 Anomaly Detected
       ↓
@@ -382,7 +392,9 @@ Investigation Status Updated
       ↓
 Final Report
 This allows BharatMedGuard to function not only as an anomaly detector but also as an investigation-support platform.
+
 🧪 API Testing
+
 Postman is used for testing and validating backend APIs.
 The project includes a Postman collection covering major API workflows.
 Typical API flow:
@@ -398,12 +410,16 @@ Anomaly Detection
       ↓
 Result / Alert
 ⚙️ Installation
+
 1. Clone the Repository
+
 git clone https://github.com/YOUR-USERNAME/Bharat-MedGuard.git
 cd Bharat-MedGuard
+
 🐍 Backend Setup
 Navigate to the backend:
 cd bharatmedguard-backend
+
 Create a virtual environment:
 Windows
 python -m venv venv
@@ -411,34 +427,48 @@ venv\Scripts\activate
 Linux / macOS
 python3 -m venv venv
 source venv/bin/activate
+
 Install dependencies:
 pip install -r requirements.txt
+
 Create environment configuration:
 copy .env.example .env
 Configure the required environment variables.
+
 Start the FastAPI server:
 uvicorn app.main:app --reload
+
 Backend:
 http://127.0.0.1:8000
+
 FastAPI documentation:
 http://127.0.0.1:8000/docs
+
 ⚛️ Frontend Setup
+
 Open another terminal:
 cd bharatmedguard-frontend
+
 Install dependencies:
 npm install
+
 Start the development server:
 npm run dev
+
 Frontend:
 http://localhost:5173
+
 🗄️ MongoDB Configuration
+
 BharatMedGuard uses MongoDB for application data storage.
 Configure the MongoDB connection through the backend .env file.
 Example:
 MONGODB_URI=your_mongodb_connection_string
 DATABASE_NAME=bharatmedguard
 Never commit your real .env file or database credentials to GitHub.
+
 🔑 Environment Variables
+
 Create a .env file inside the backend directory.
 Example:
 MONGODB_URI=
@@ -448,7 +478,9 @@ JWT_ALGORITHM=
 ACCESS_TOKEN_EXPIRE_MINUTES=
 CORS_ORIGINS=
 Use .env.example as the template.
+
 🧪 Testing
+
 Backend APIs can be tested using Postman.
 Run the backend:
 uvicorn app.main:app --reload
@@ -462,7 +494,9 @@ Clinical pipeline
 Alerts
 Investigation workflows
 Audit logs
+
 🛡️ Security Principles
+
 BharatMedGuard follows several security principles:
 Never store plaintext passwords
 Validate incoming API data
@@ -474,7 +508,9 @@ Maintain audit logs
 Restrict cross-origin requests
 Avoid committing sensitive files
 Separate frontend and backend responsibilities
+
 🎯 Project Objectives
+
 The primary objectives of BharatMedGuard are to:
 Detect suspicious healthcare activity.
 Identify potential billing and insurance anomalies.
@@ -485,7 +521,9 @@ Provide risk indicators for investigators.
 Secure healthcare APIs and user access.
 Maintain auditability of security-related actions.
 Demonstrate practical application of AI/ML in healthcare cybersecurity.
+
 🔮 Future Enhancements
+
 Potential future improvements include:
 Advanced supervised fraud detection models
 XGBoost-based classification
@@ -498,13 +536,18 @@ SIEM integration
 Cloud deployment
 Advanced network intrusion detection
 Multi-hospital deployment architecture
+
 ⚠️ Disclaimer
+
 BharatMedGuard is an educational and prototype cybersecurity project.
 It is designed to demonstrate healthcare anomaly detection, security engineering, machine learning, and investigation workflows.
 It is not intended to provide medical diagnosis, make autonomous healthcare decisions, or replace professional medical, insurance, compliance, or cybersecurity judgment.
 Any anomaly detected by the system should be reviewed by an appropriately authorized human investigator.
+
 👩‍💻 Development
+
 BharatMedGuard combines:
+
 Healthcare Security
         +
 Machine Learning
@@ -516,10 +559,14 @@ API Security
 Document Intelligence
         +
 Network Security
+
 📜 License
+
 This project is intended for educational and research purposes.
 Add an appropriate open-source license if you decide to publish the project for external use.
+
 ⭐ BharatMedGuard
+
 Detect. Analyze. Investigate. Protect.
 An intelligent security layer for the healthcare ecosystem.
 
